@@ -5,7 +5,14 @@
  */
 package sptvr19myschool;
 
+import entity.Person;
+import entity.Subject;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import tools.manager.PersonManager;
+import tools.manager.SubjectManager;
+import tools.savers.SaveToFile;
 
 /**
  *
@@ -13,6 +20,19 @@ import java.util.Scanner;
  */
 class App {
     private Scanner scanner = new Scanner(System.in);
+    
+    private  List<Person> listPersons = new ArrayList<>(); 
+    private  List<Subject> listSubjects = new ArrayList<>(); 
+    
+    private PersonManager personManager = new PersonManager();
+    private SubjectManager subjectManager = new SubjectManager();
+
+    public App() {
+        SaveToFile saveToFile = new SaveToFile();
+        this.listPersons = saveToFile.loadFromFile("listPersons");
+        this.listSubjects = saveToFile.loadFromFile("listSubjects");
+    }
+    
     public void run(){
         System.out.println("--- Моя школа ---");
         boolean repeat = true;
@@ -37,22 +57,26 @@ class App {
                     repeat = false;
                     break;
                 case "1":
+                    Person student = personManager.createPerson("STUDENT");
+                    personManager.addPersonToList(student, listPersons);
                     
                     break;
                 case "2":
-                    
+                    personManager.printListStudents(listPersons);
                     break;
                 case "3":
-                    
+                    Person teacher = personManager.createPerson("TEACHER");
+                    personManager.addPersonToList(teacher, listPersons);
                     break;
                 case "4":
-                    
+                    personManager.printListTeachers(listPersons);
                     break;
                 case "5":
-                    
+                    Subject subject = subjectManager.createSubject(listPersons);
+                    subjectManager.addSubjectToList(subject, listSubjects);
                     break;
                 case "6":
-                    
+                    subjectManager.printlistSubjects(listSubjects);
                     break;
                 case "7":
                     
