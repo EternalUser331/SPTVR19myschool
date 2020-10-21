@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package myschool;
+package SPTVR19myschool;
 
 /**
  *
  * @author user
  */
-public class Myschool {
+public class SPTVR19Myschool {
 
     /**
      * @param args the command line arguments

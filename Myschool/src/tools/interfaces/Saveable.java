@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package myschool;
+package tools.interfaces;
+
+import java.util.List;
 
 /**
  *
  * @author user
  */
-class App {
-    
-
-    void run() {
-        System.out.println("Ты что даун?");
-    }
+public interface Saveable {
+    public void saveToFile(List arrayList, String fileName);
 }
