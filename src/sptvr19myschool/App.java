@@ -5,11 +5,13 @@
  */
 package sptvr19myschool;
 
+import entity.Journal;
 import entity.Person;
 import entity.Subject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import tools.manager.JournalManager;
 import tools.manager.PersonManager;
 import tools.manager.SubjectManager;
 import tools.savers.SaveToFile;
@@ -23,14 +25,17 @@ class App {
     
     private  List<Person> listPersons = new ArrayList<>(); 
     private  List<Subject> listSubjects = new ArrayList<>(); 
+    private  List<Journal> listJournals = new ArrayList<>(); 
     
     private PersonManager personManager = new PersonManager();
     private SubjectManager subjectManager = new SubjectManager();
+    private JournalManager journalManager = new JournalManager();
 
     public App() {
         SaveToFile saveToFile = new SaveToFile();
         this.listPersons = saveToFile.loadFromFile("listPersons");
         this.listSubjects = saveToFile.loadFromFile("listSubjects");
+        this.listJournals = saveToFile.loadFromFile("listJournals");
     }
     
     public void run(){
@@ -79,7 +84,7 @@ class App {
                     subjectManager.printlistSubjects(listSubjects);
                     break;
                 case "7":
-                    
+                    journalManager.setMarkToUser(listSubjects, listPersons, listJournals);
                     break;
                 case "8":
                     
