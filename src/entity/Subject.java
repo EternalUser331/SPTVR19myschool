@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author sillamae kutsekool
+ * @author user
  */
 public class Subject implements Serializable{
     private String name;
